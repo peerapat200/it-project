@@ -6,6 +6,9 @@ import NutritionCalculator from './components/NutritionCalculator'
 import HealthyFoods from './components/HealthyFoods'
 import MealPlanner from './components/MealPlanner'
 import Dashboard from './components/Dashboard'
+import BMRCalculator from './pages/BMRCalculator'
+import TDEECalculator from './pages/TDEECalculator'
+import DailyGoal from './pages/DailyGoal'
 import FoodDiary from './components/FoodDiary'
 import RecommendedPlan from './components/RecommendedPlan'
 import NutritionSummary from './components/NutritionSummary'
@@ -21,7 +24,7 @@ function App() {
       case 'home':
         return <WelcomeBanner />
       case 'dashboard':
-        return <Dashboard />
+        return <Dashboard onSelect={handleDashboardSelect} />
       case 'foods':
         return <HealthyFoods />
       case 'meal-planner':
@@ -34,9 +37,19 @@ function App() {
         return <NutritionSummary />
       case 'admin':
         return <AdminPanel />
+      case 'bmr':
+        return <BMRCalculator />
+      case 'tdee':
+        return <TDEECalculator />
+      case 'goal':
+        return <DailyGoal />
       default:
         return <WelcomeBanner />
     }
+  }
+
+  function handleDashboardSelect(key) {
+    setActiveTab(key)
   }
 
   return (
