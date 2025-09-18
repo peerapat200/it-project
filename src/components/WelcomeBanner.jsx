@@ -74,7 +74,7 @@ const WelcomeBanner = () => {
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-tr from-green-200 via-lime-100 to-yellow-50 animate-pulse-slow"></div>
-      <div className="absolute inset-0 bg-[url('/plant.jpg')] bg-cover bg-center opacity-30 animate-fade-in"></div>
+  <div className="absolute inset-0 w-full h-full bg-[url('/plant.jpg')] bg-cover bg-center opacity-30 animate-fade-in"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.3),_transparent)]"></div>
 
       {/* Glow shapes */}

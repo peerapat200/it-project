@@ -117,22 +117,22 @@ const Header = ({ activeTab, setActiveTab }) => {
                 </div>
               ) : (
                 <div className="flex items-center space-x-2">
-                  <button
-                    onClick={() => setShowLoginModal(true)}
-                    className="group relative px-3 sm:px-4 py-2 text-green-600 hover:text-white font-medium transition-all duration-300 flex items-center space-x-1 rounded-xl border-2 border-green-500 hover:bg-green-500 hover:shadow-lg hover:shadow-green-200 transform hover:scale-105"
-                  >
-                    <span className="group-hover:animate-bounce">🔑</span>
-                    <span className="hidden sm:inline text-sm sm:text-base">เข้าสู่ระบบ</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                  </button>
-                  <button
-                    onClick={() => setShowRegisterModal(true)}
-                    className="group relative px-3 sm:px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-green-300 flex items-center space-x-1 font-medium"
-                  >
-                    <span className="group-hover:animate-bounce">📝</span>
-                    <span className="hidden sm:inline text-sm sm:text-base">สมัครสมาชิก</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </button>
+                  <div className="flex items-center gap-6 ml-4">
+                    <button
+                      onClick={() => setShowRegisterModal(true)}
+                      className="group relative px-4 py-2 bg-gradient-to-r from-green-400 via-green-300 to-green-500 text-white font-bold flex items-center rounded-xl border-2 border-green-400 hover:bg-green-500 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 mr-10"
+                      style={{ minWidth: '120px' }}
+                    >
+                      <span className="hidden sm:inline text-sm sm:text-base">สมัครสมาชิก</span>
+                    </button>
+                    <button
+                      onClick={() => setShowLoginModal(true)}
+                      className="group relative px-4 py-2 bg-gradient-to-r from-green-200 via-green-100 to-green-300 text-green-900 font-bold flex items-center rounded-xl border-2 border-green-300 hover:bg-green-300 hover:text-green-900 transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-300 ml-2"
+                      style={{ minWidth: '120px', marginLeft: '32px' }}
+                    >
+                      <span className="hidden sm:inline text-sm sm:text-base">เข้าสู่ระบบ</span>
+                    </button>
+                  </div>
                 </div>
               )}
             </div>

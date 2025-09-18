@@ -34,11 +34,11 @@ const LoginModal = ({ isOpen, onClose, switchToRegister }) => {
       <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-3xl shadow-2xl flex flex-col md:flex-row w-full max-w-3xl overflow-hidden transition-all duration-300">
         
         {/* Left: Illustration */}
-        <div className="hidden md:flex flex-col justify-center items-center bg-green-200 p-6 w-1/2 border-r border-green-300">
+        <div className="hidden md:flex flex-col justify-center items-center p-6 w-1/2 border-r border-green-300">
           <img
             src="/people.jpg"
             alt="login-illustration"
-            className="w-64 h-64 object-contain rounded-xl shadow-lg"
+            className="w-64 h-64 object-contain rounded-xl shadow-lg bg-transparent"
           />
           <h3 className="mt-4 text-lg font-semibold text-green-800 text-center">ยินดีต้อนรับ</h3>
           <p className="text-green-700 text-sm text-center mt-1">ล๊อคอินเพื่อดำเนินการต่อ</p>
@@ -65,7 +65,7 @@ const LoginModal = ({ isOpen, onClose, switchToRegister }) => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-300 text-base shadow-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-300 text-base shadow-sm text-green-900 placeholder:text-green-700"
                   placeholder="Email"
                   autoComplete="username"
                 />
@@ -82,7 +82,7 @@ const LoginModal = ({ isOpen, onClose, switchToRegister }) => {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-300 text-base shadow-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-300 text-base shadow-sm text-green-900 placeholder:text-green-700"
                   placeholder="Password"
                   autoComplete="current-password"
                 />
@@ -110,7 +110,7 @@ const LoginModal = ({ isOpen, onClose, switchToRegister }) => {
             <button
               type="submit"
               disabled={isLoading}
-                className="w-full bg-green-300 hover:bg-green-400 text-green-900 font-semibold py-2 rounded-lg transition-all disabled:bg-green-100 text-sm shadow-sm mt-4 mb-2"
+              className="w-full bg-gradient-to-r from-green-200 via-green-100 to-green-300 hover:from-green-300 hover:to-green-400 text-green-900 font-semibold py-1.5 rounded-xl transition-all disabled:bg-green-100 text-xs shadow-sm mt-3 mb-2 min-h-[36px]"
             >
               {isLoading ? 'Loading...' : 'Login'}
             </button>
@@ -125,7 +125,7 @@ const LoginModal = ({ isOpen, onClose, switchToRegister }) => {
             {/* Google Sign-In */}
             <button
               type="button"
-              className="w-full flex items-center justify-center border border-green-300 rounded-lg py-2 bg-green-50 hover:bg-green-100 transition-all text-green-900 font-medium text-sm shadow-sm mt-2 mb-2"
+              className="w-full flex items-center justify-center border border-green-200 rounded-xl py-1.5 bg-gradient-to-r from-green-50 via-green-100 to-green-200 hover:from-green-100 hover:to-green-300 text-green-900 font-medium text-xs shadow-sm mt-2 mb-2 min-h-[36px]"
             >
               <img src="/google2.jpg" alt="Google" className="w-4 h-4 mr-2" />
               Sign up with Google
@@ -137,7 +137,7 @@ const LoginModal = ({ isOpen, onClose, switchToRegister }) => {
             <span className="text-gray-600 text-sm">Don’t have an account?</span>
               <button
                 onClick={switchToRegister}
-                className="bg-green-300 hover:bg-green-400 text-green-900 font-semibold px-4 py-1.5 rounded-lg text-xs transition-all shadow-sm mt-2"
+                className="bg-gradient-to-r from-green-200 via-green-100 to-green-300 hover:from-green-300 hover:to-green-400 text-green-900 font-semibold px-3 py-1 rounded-xl text-xs transition-all shadow-sm mt-2 min-h-[32px]"
               >
                 Register
               </button>
