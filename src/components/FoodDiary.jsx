@@ -223,7 +223,7 @@ const FoodDiary = () => {
                   ) : (
                     <div className="space-y-5">
                       {meals[mealType].map((food, foodIndex) => (
-                        <div key={food.id} className="group flex flex-col lg:flex-row lg:items-center lg:justify-between p-6 sm:p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl border-2 border-blue-200 hover:from-green-50 hover:to-emerald-50 hover:border-green-300 transition-all duration-300 shadow-lg hover:shadow-xl animate-slide-up space-y-4 lg:space-y-0 mt-3 mb-3" style={{animationDelay: `${foodIndex * 50}ms`}}>
+                          <div key={food.id} className="group flex flex-col lg:flex-row lg:items-center lg:justify-between p-6 sm:p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl border-2 border-blue-200 hover:from-green-50 hover:to-emerald-50 hover:border-green-300 transition-all duration-300 shadow-lg hover:shadow-xl animate-slide-up space-y-4 lg:space-y-0 mt-3 mb-3" style={{animationDelay: `${foodIndex * 50}ms`}}>
                           <div className="flex-1 min-w-0 text-center lg:text-left">
                             <div className="font-bold text-blue-700 text-lg sm:text-xl mb-4">
                               {food.name} x {food.quantity} {food.unit}

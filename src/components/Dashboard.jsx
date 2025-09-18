@@ -66,16 +66,16 @@ const Dashboard = ({ onSelect }) => {
             { key: 'tdee', label: 'คำนวณ TDEE', icon: '🔥' },
             { key: 'goal', label: 'เป้าหมายพลังงานต่อวัน', icon: '🎯' },
           ].map((btn) => (
-            <motion.button
-              key={btn.key}
-              className="bg-white border border-green-200 text-green-900 font-bold text-xl rounded-3xl py-5 px-8 shadow-2xl transition-all flex items-center justify-center gap-4 hover:bg-green-50 hover:scale-105 hover:rotate-1 hover:shadow-emerald-400/60"
-              onClick={() => onSelect && onSelect(btn.key)}
-              whileHover={{ scale: 1.08, rotate: [0, 2, -2, 0], transition: { duration: 0.5 } }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-3xl">{btn.icon}</span>
-              {btn.label}
-            </motion.button>
+              <motion.button
+                key={btn.key}
+                className="bg-gradient-to-r from-green-100 via-green-200 to-green-300 border border-green-200 text-green-900 font-bold text-xl rounded-3xl py-5 px-8 shadow-2xl transition-all flex items-center justify-center gap-4 hover:from-green-200 hover:to-green-400 hover:text-green-800 hover:scale-105 hover:rotate-1 hover:shadow-emerald-400/60"
+                onClick={() => onSelect && onSelect(btn.key)}
+                whileHover={{ scale: 1.08, rotate: [0, 2, -2, 0], transition: { duration: 0.5 } }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="text-3xl">{btn.icon}</span>
+                {btn.label}
+              </motion.button>
           ))}
         </div>
       </div>

@@ -2,13 +2,11 @@ import { useState } from 'react'
 import { AuthProvider } from './context/AuthContext'
 import Header from './components/Header'
 import WelcomeBanner from './components/WelcomeBanner'
-import NutritionCalculator from './components/NutritionCalculator'
 import HealthyFoods from './components/HealthyFoods'
 import MealPlanner from './components/MealPlanner'
 import Dashboard from './components/Dashboard'
 import BMRCalculator from './pages/BMRCalculator'
 import TDEECalculator from './pages/TDEECalculator'
-import DailyGoal from './pages/DailyGoal'
 import FoodDiary from './components/FoodDiary'
 import RecommendedPlan from './components/RecommendedPlan'
 import NutritionSummary from './components/NutritionSummary'
@@ -38,7 +36,7 @@ function App() {
       case 'admin':
         return <AdminPanel />
       case 'bmr':
-        return <BMRCalculator />
+        return <BMRCalculator goToDashboard={() => setActiveTab('dashboard')} />
       case 'tdee':
         return <TDEECalculator />
       case 'goal':
