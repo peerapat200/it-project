@@ -211,7 +211,7 @@ const MealPlanner = () => {
             <select
               value={ageGroup}
               onChange={(e) => setAgeGroup(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white text-green-900 placeholder:text-green-700"
             >
               {Object.entries(ageGroups).map(([key, value]) => (
                 <option key={key} value={key}>{value}</option>
@@ -226,7 +226,7 @@ const MealPlanner = () => {
             <select
               value={selectedDay}
               onChange={(e) => setSelectedDay(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white text-green-900 placeholder:text-green-700"
             >
               {Object.entries(days).map(([key, value]) => (
                 <option key={key} value={key}>{value}</option>

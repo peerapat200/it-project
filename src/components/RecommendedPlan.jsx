@@ -140,18 +140,30 @@ const RecommendedPlan = () => {
             <label className="block text-sm font-medium text-gray-700 mb-3">
               เป้าหมายของคุณ
             </label>
-            <div className="space-y-2">
+            <div className="flex flex-col gap-3">
               {Object.entries(goals).map(([key, goal]) => (
                 <button
                   key={key}
                   onClick={() => setSelectedGoal(key)}
-                  className={`w-full p-3 rounded-lg border-2 text-left transition-all ${
-                    selectedGoal === key
-                      ? `border-green-500 ${goal.bg} ${goal.color}`
-                      : 'border-gray-200 hover:border-gray-300 text-gray-700'
+                  className={`w-full p-3 rounded-xl border-2 text-left transition-all shadow-sm focus:outline-green-500
+                    ${selectedGoal === key
+                      ? key === 'lose'
+                        ? 'border-red-400 bg-gradient-to-r from-red-100 to-red-200 text-red-700'
+                      : key === 'maintain'
+                        ? 'border-green-400 bg-gradient-to-r from-green-100 to-green-200 text-green-700'
+                      : key === 'gain'
+                        ? 'border-blue-400 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700'
+                      : ''
+                    : key === 'lose'
+                        ? 'border-gray-200 bg-red-50 text-red-700 hover:border-red-300'
+                      : key === 'maintain'
+                        ? 'border-gray-200 bg-green-50 text-green-700 hover:border-green-300'
+                      : key === 'gain'
+                        ? 'border-gray-200 bg-blue-50 text-blue-700 hover:border-blue-300'
+                      : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                   }`}
                 >
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center gap-3">
                     <span className="text-xl">{goal.icon}</span>
                     <span className="font-medium">{goal.name}</span>
                   </div>
@@ -168,7 +180,7 @@ const RecommendedPlan = () => {
             <select
               value={activityLevel}
               onChange={(e) => setActivityLevel(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-green-900 placeholder:text-green-700"
             >
               {Object.entries(activities).map(([key, activity]) => (
                 <option key={key} value={key}>
@@ -186,7 +198,7 @@ const RecommendedPlan = () => {
             <select
               value={dietaryPreference}
               onChange={(e) => setDietaryPreference(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-green-900 placeholder:text-green-700"
             >
               {Object.entries(dietTypes).map(([key, diet]) => (
                 <option key={key} value={key}>
@@ -201,7 +213,7 @@ const RecommendedPlan = () => {
           <button
             onClick={generatePlan}
             disabled={isLoading}
-            className="w-full md:w-auto px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-medium"
+            className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-xl hover:from-green-500 hover:to-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-semibold shadow-lg"
           >
             {isLoading ? (
               <div className="flex items-center space-x-2">
