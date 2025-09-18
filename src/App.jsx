@@ -7,6 +7,7 @@ import MealPlanner from './components/MealPlanner'
 import Dashboard from './components/Dashboard'
 import BMRCalculator from './pages/BMRCalculator'
 import TDEECalculator from './pages/TDEECalculator'
+import GoalPage from './pages/GoalPage'
 import FoodDiary from './components/FoodDiary'
 import RecommendedPlan from './components/RecommendedPlan'
 import NutritionSummary from './components/NutritionSummary'
@@ -38,9 +39,9 @@ function App() {
       case 'bmr':
         return <BMRCalculator goToDashboard={() => setActiveTab('dashboard')} />
       case 'tdee':
-        return <TDEECalculator />
+        return <TDEECalculator goToDashboard={() => setActiveTab('dashboard')} />
       case 'goal':
-        return <DailyGoal />
+        return <GoalPage />
       default:
         return <WelcomeBanner />
     }
