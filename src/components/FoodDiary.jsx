@@ -86,73 +86,73 @@ const FoodDiary = () => {
   const targetCalories = 2000
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 w-full flex flex-col items-center justify-start">
-      <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-y-8 sm:gap-y-12">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 w-full flex flex-col items-center justify-start pb-24">
+      <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-y-6 sm:gap-y-8">
         {/* Header */}
-  <div className="text-center mt-8 mb-10 sm:mt-12 sm:mb-16 animate-fade-in">
-          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mb-8 shadow-2xl">
-            <span className="text-4xl text-white">📊</span>
+        <div className="text-center mt-6 mb-8 animate-fade-in">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mb-6 shadow-xl">
+            <span className="text-3xl text-white">📊</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
             บันทึกอาหารประจำวัน
           </h1>
-          <p className="text-lg sm:text-xl text-blue-700 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-base sm:text-lg text-blue-700 max-w-2xl mx-auto leading-relaxed font-medium">
             ติดตามอาหารและโภชนาการที่คุณได้รับในแต่ละวัน เพื่อสุขภาพที่ดีกว่า
           </p>
         </div>
 
         {/* Date Selector */}
-  <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/20 hover:shadow-3xl transition-all duration-500 animate-slide-up max-w-6xl mx-auto my-8 sm:my-12">
-          <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-8 xl:space-y-0 xl:space-x-10">
-            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 xl:flex-1">
-              <div className="p-5 bg-gradient-to-r from-blue-400 to-purple-500 rounded-3xl shadow-xl">
-                <span className="text-3xl sm:text-4xl">📅</span>
+        <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-6 sm:p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 animate-slide-up max-w-5xl mx-auto">
+          <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-8">
+            <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 xl:flex-1">
+              <div className="p-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl shadow-lg">
+                <span className="text-2xl sm:text-3xl">📅</span>
               </div>
               <div className="text-center sm:text-left flex-1">
-                <label className="block text-xl font-bold text-blue-700 mb-4">
+                <label className="block text-lg font-bold text-blue-700 mb-3">
                   เลือกวันที่
                 </label>
                 <input
                   type="date"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
-                  className="border-2 border-gray-200 rounded-2xl px-8 py-5 text-lg sm:text-xl focus:ring-4 focus:ring-green-300 focus:border-green-500 w-full transition-all duration-300 hover:border-green-300 shadow-lg bg-white/90 backdrop-blur-sm font-medium text-center sm:text-left text-blue-700 cursor-pointer"
+                  className="border-2 border-gray-200 rounded-2xl px-6 py-4 text-lg focus:ring-3 focus:ring-green-300 focus:border-green-500 w-full transition-all duration-300 hover:border-green-300 shadow-md bg-white/90 backdrop-blur-sm font-medium text-center sm:text-left text-blue-700 cursor-pointer"
                 />
               </div>
             </div>
             
             {/* Daily Summary */}
-            <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-6 w-full xl:w-auto">
-              <div className="text-center p-5 bg-gradient-to-br from-green-400 to-emerald-500 rounded-3xl border border-green-300 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-white">
-                <div className="text-2xl sm:text-4xl font-bold mb-2">
+            <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 xl:gap-4 w-full xl:w-auto">
+              <div className="text-center p-4 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl border border-green-300 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white">
+                <div className="text-xl sm:text-3xl font-bold mb-1">
                   {Math.round(totalNutrition.calories)}
                 </div>
-                <div className="text-sm sm:text-base font-semibold opacity-90">แคลอรี่</div>
+                <div className="text-xs sm:text-sm font-semibold opacity-90">แคลอรี่</div>
               </div>
-              <div className="text-center p-5 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-3xl border border-blue-300 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-white">
-                <div className="text-2xl sm:text-4xl font-bold mb-2">
+              <div className="text-center p-4 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl border border-blue-300 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white">
+                <div className="text-xl sm:text-3xl font-bold mb-1">
                   {Math.round(totalNutrition.protein)}g
                 </div>
-                <div className="text-sm sm:text-base font-semibold opacity-90">โปรตีน</div>
+                <div className="text-xs sm:text-sm font-semibold opacity-90">โปรตีน</div>
               </div>
-              <div className="text-center p-5 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-3xl border border-orange-300 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-white">
-                <div className="text-2xl sm:text-4xl font-bold mb-2">
+              <div className="text-center p-4 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-2xl border border-orange-300 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white">
+                <div className="text-xl sm:text-3xl font-bold mb-1">
                   {Math.round(totalNutrition.carbs)}g
                 </div>
-                <div className="text-sm sm:text-base font-semibold opacity-90">คาร์บ</div>
+                <div className="text-xs sm:text-sm font-semibold opacity-90">คาร์บ</div>
               </div>
-              <div className="text-center p-5 bg-gradient-to-br from-red-400 to-pink-500 rounded-3xl border border-red-300 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-white">
-                <div className="text-2xl sm:text-4xl font-bold mb-2">
+              <div className="text-center p-4 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl border border-red-300 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white">
+                <div className="text-xl sm:text-3xl font-bold mb-1">
                   {Math.round(totalNutrition.fat)}g
                 </div>
-                <div className="text-sm sm:text-base font-semibold opacity-90">ไขมัน</div>
+                <div className="text-xs sm:text-sm font-semibold opacity-90">ไขมัน</div>
               </div>
             </div>
           </div>
 
           {/* Progress Bar */}
-          <div className="mt-10">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-lg font-bold text-blue-700 mb-6 space-y-2 sm:space-y-0">
+          <div className="mt-8">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-base font-bold text-blue-700 mb-4 space-y-2 sm:space-y-0">
               <span className="flex items-center justify-center sm:justify-start">
                 <span className="mr-3 text-3xl">🎯</span>
                 ความคืบหน้าแคลอรี่ประจำวัน
@@ -178,22 +178,22 @@ const FoodDiary = () => {
         </div>
 
         {/* Meals */}
-        <div className="max-w-6xl mx-auto my-8 sm:my-12">
-          <div className="grid grid-cols-1 2xl:grid-cols-2 gap-10 sm:gap-12 mt-6 mb-6">
+        <div className="max-w-6xl mx-auto my-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
             {Object.entries(mealTypes).map(([mealType, mealInfo], index) => (
-              <div key={mealType} className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden border border-white/30 hover:shadow-3xl transition-all duration-500 transform hover:scale-102 animate-slide-up mt-4 mb-4" style={{animationDelay: `${index * 100}ms`}}>
-                <div className={`bg-gradient-to-r ${mealInfo.color} p-8 sm:p-10 text-white relative overflow-hidden`}>
+              <div key={mealType} className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl overflow-hidden border border-white/30 hover:shadow-2xl transition-all duration-300 transform hover:scale-102 animate-slide-up h-fit" style={{animationDelay: `${index * 100}ms`}}>
+                <div className={`bg-gradient-to-r ${mealInfo.color} p-4 text-white relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-blue-900 bg-opacity-15"></div>
-                  <div className="absolute -right-16 -top-16 w-40 h-40 bg-white bg-opacity-10 rounded-full"></div>
-                  <div className="absolute -left-10 -bottom-10 w-32 h-32 bg-white bg-opacity-10 rounded-full"></div>
-                  <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-                    <div className="flex items-center space-x-5 justify-center sm:justify-start">
-                      <div className="p-5 bg-white bg-opacity-25 rounded-3xl backdrop-blur-sm shadow-xl">
-                        <span className="text-3xl sm:text-4xl">{mealInfo.icon}</span>
+                  <div className="absolute -right-6 -top-6 w-16 h-16 bg-white bg-opacity-10 rounded-full"></div>
+                  <div className="absolute -left-4 -bottom-4 w-12 h-12 bg-white bg-opacity-10 rounded-full"></div>
+                  <div className="relative flex items-center justify-between z-10">
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-white bg-opacity-30 rounded-xl backdrop-blur-sm shadow-lg flex-shrink-0">
+                        <span className="text-lg">{mealInfo.icon}</span>
                       </div>
-                      <div className="text-center sm:text-left">
-                        <h3 className="text-2xl sm:text-3xl font-bold mb-2">{mealInfo.name}</h3>
-                        <p className="text-base opacity-90 font-medium">
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold mb-1 text-shadow-sm">{mealInfo.name}</h3>
+                        <p className="text-xs opacity-90 font-medium">
                           {meals[mealType].length} รายการ
                         </p>
                       </div>
@@ -203,51 +203,51 @@ const FoodDiary = () => {
                         setSelectedMeal(mealType)
                         setShowAddModal(true)
                       }}
-                      className="group bg-green-300 hover:bg-green-400 text-green-900 rounded-xl px-4 py-2 text-base font-bold transition-all duration-300 border border-green-400 shadow-md mx-auto sm:mx-0 mt-2 mb-2"
+                      className="group bg-green-300 hover:bg-green-400 text-green-900 rounded-lg px-3 py-2 text-xs font-bold transition-all duration-300 border border-green-400 shadow-md"
                     >
-                      <span className="group-hover:animate-bounce inline-block mr-2">+</span> 
-                      <span className="tracking-wide">เพิ่มอาหาร</span>
+                      <span className="group-hover:animate-bounce inline-block mr-1">+</span> 
+                      <span className="tracking-wide">เพิ่ม</span>
                     </button>
                   </div>
                 </div>
                 
-                <div className="p-8 sm:p-12">
+                <div className="p-4">
                   {meals[mealType].length === 0 ? (
-                    <div className="text-center py-16 sm:py-20">
-                      <div className="w-32 h-32 sm:w-36 sm:h-36 mx-auto mb-8 bg-gradient-to-br from-blue-100 to-purple-200 rounded-full flex items-center justify-center shadow-inner">
-                        <span className="text-5xl sm:text-6xl opacity-70">🍽️</span>
+                    <div className="text-center py-8">
+                      <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-blue-100 to-purple-200 rounded-full flex items-center justify-center shadow-inner">
+                        <span className="text-2xl opacity-70">🍽️</span>
                       </div>
-                      <p className="text-xl sm:text-2xl font-bold text-blue-700 mb-3">ยังไม่มีรายการอาหาร</p>
-                      <p className="text-lg sm:text-xl text-blue-600 font-medium">คลิก "เพิ่มอาหาร" เพื่อเริ่มบันทึก</p>
+                      <p className="text-base font-bold text-blue-700 mb-1">ยังไม่มีรายการอาหาร</p>
+                      <p className="text-xs text-blue-600 font-medium">คลิก "เพิ่ม" เพื่อเริ่มบันทึก</p>
                     </div>
                   ) : (
-                    <div className="space-y-5">
+                    <div className="space-y-0">
                       {meals[mealType].map((food, foodIndex) => (
-                          <div key={food.id} className="group flex flex-col lg:flex-row lg:items-center lg:justify-between p-6 sm:p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl border-2 border-blue-200 hover:from-green-50 hover:to-emerald-50 hover:border-green-300 transition-all duration-300 shadow-lg hover:shadow-xl animate-slide-up space-y-4 lg:space-y-0 mt-3 mb-3" style={{animationDelay: `${foodIndex * 50}ms`}}>
-                          <div className="flex-1 min-w-0 text-center lg:text-left">
-                            <div className="font-bold text-blue-700 text-lg sm:text-xl mb-4">
+                          <div key={food.id} className="group flex items-start justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 hover:from-green-50 hover:to-emerald-50 hover:border-green-300 transition-all duration-300 shadow-sm hover:shadow-md animate-slide-up mb-3" style={{animationDelay: `${foodIndex * 50}ms`}}>
+                          <div className="flex-1 min-w-0 pr-3">
+                            <div className="font-bold text-blue-700 text-sm mb-2">
                               {food.name} x {food.quantity} {food.unit}
                             </div>
-                            <div className="text-base sm:text-lg text-blue-700 flex flex-wrap gap-3 justify-center lg:justify-start">
-                              <span className="bg-gradient-to-r from-orange-400 to-red-400 text-white px-4 py-2 rounded-full font-bold shadow-lg">
-                                🔥 {Math.round(food.totalCalories)} แคลอรี่
+                            <div className="text-xs text-blue-700 flex flex-wrap gap-2">
+                              <span className="bg-gradient-to-r from-orange-400 to-red-400 text-white px-3 py-1 rounded-full font-bold text-xs shadow-sm">
+                                🔥 {Math.round(food.totalCalories)}
                               </span>
-                              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 text-white px-4 py-2 rounded-full font-bold shadow-lg">
+                              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 text-white px-3 py-1 rounded-full font-bold text-xs shadow-sm">
                                 💪 {Math.round(food.totalProtein)}g
                               </span>
-                              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-4 py-2 rounded-full font-bold shadow-lg">
+                              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-3 py-1 rounded-full font-bold text-xs shadow-sm">
                                 🌾 {Math.round(food.totalCarbs)}g
                               </span>
-                              <span className="bg-gradient-to-r from-green-400 to-emerald-400 text-white px-4 py-2 rounded-full font-bold shadow-lg">
+                              <span className="bg-gradient-to-r from-green-400 to-emerald-400 text-white px-3 py-1 rounded-full font-bold text-xs shadow-sm">
                                 🥑 {Math.round(food.totalFat)}g
                               </span>
                             </div>
                           </div>
                           <button
                             onClick={() => removeFoodFromMeal(mealType, food.id)}
-                            className="lg:ml-6 p-2 text-red-500 hover:text-white hover:bg-red-500 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg mx-auto lg:mx-0 mt-2 mb-2"
+                            className="flex-shrink-0 p-2 text-red-500 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md"
                           >
-                            <span className="text-xl sm:text-2xl font-bold">🗑️</span>
+                            <span className="text-sm font-bold">🗑️</span>
                           </button>
                         </div>
                       ))}
@@ -375,26 +375,19 @@ const FoodDiary = () => {
               )}
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-4 mb-2">
+              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-8 mb-4">
                 <button
                   onClick={() => setShowAddModal(false)}
-                  className="flex-1 px-6 py-3 border-2 border-blue-300 text-blue-700 rounded-xl hover:bg-blue-50 hover:border-blue-400 transition-all duration-300 text-base sm:text-lg font-bold shadow-md hover:shadow-xl transform hover:scale-105"
+                  className="flex-1 px-6 py-4 border-2 border-blue-300 text-blue-700 rounded-xl hover:bg-blue-50 hover:border-blue-400 transition-all duration-300 text-base sm:text-lg font-bold shadow-md hover:shadow-xl transform hover:scale-105"
                 >
                   ❌ ยกเลิก
                 </button>
                 <button
                   onClick={addFoodToMeal}
                   disabled={!selectedFood}
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-xl hover:from-green-500 hover:to-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 text-base sm:text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none"
+                  className="flex-1 px-6 py-4 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-xl hover:from-green-500 hover:to-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 text-base sm:text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none"
                 >
-                  ✅ <span className="tracking-wide">บันทึกอาหารเข้าระบบ</span>
-                </button>
-                <button
-                  onClick={addFoodToMeal}
-                  disabled={!selectedFood}
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-xl hover:from-blue-500 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 text-base sm:text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none"
-                >
-                  📝 <span className="tracking-wide">ยืนยัน</span>
+                  ✅ <span className="tracking-wide">บันทึกอาหาร</span>
                 </button>
               </div>
             </div>

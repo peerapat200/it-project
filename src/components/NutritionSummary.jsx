@@ -79,244 +79,354 @@ const NutritionSummary = () => {
   if (!summaryData) return <div>Loading...</div>
 
   return (
-    <div className="w-full max-w-none mx-auto p-2 sm:p-4 lg:p-6 space-y-4 sm:space-y-6">
-      {/* Header */}
-      <div className="text-center mb-6 sm:mb-8">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
-          สรุปโภชนาการ
-        </h1>
-        <p className="text-sm sm:text-base text-gray-600">
-          วิเคราะห์และติดตามความคืบหน้าของโภชนาการในแต่ละช่วงเวลา
-        </p>
-      </div>
-
-      {/* Time Range Selector */}
-      <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-800">
-            ช่วงเวลาที่ต้องการดู
-          </h2>
-          <div className="flex bg-gray-100 rounded-lg p-1 w-full sm:w-auto">
-            <button
-              onClick={() => setTimeRange('week')}
-              className={`flex-1 sm:flex-none px-4 py-2 rounded-md transition-all text-sm sm:text-base ${
-                timeRange === 'week'
-                  ? 'bg-green-600 text-white shadow-md'
-                  : 'text-gray-600 hover:text-gray-800'
-              }`}
-            >
-              สัปดาห์
-            </button>
-            <button
-              onClick={() => setTimeRange('month')}
-              className={`flex-1 sm:flex-none px-4 py-2 rounded-md transition-all text-sm sm:text-base ${
-                timeRange === 'month'
-                  ? 'bg-green-600 text-white shadow-md'
-                  : 'text-gray-600 hover:text-gray-800'
-              }`}
-            >
-              เดือน
-            </button>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 w-full flex flex-col items-center justify-start pb-24">
+      <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-y-6 sm:gap-y-8">
+        {/* Header */}
+        <div className="text-center mt-6 mb-8 animate-fade-in">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mb-6 shadow-xl">
+            <span className="text-3xl text-white">📊</span>
           </div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            สรุปโภชนาการ
+          </h1>
+          <p className="text-base sm:text-lg text-blue-700 max-w-2xl mx-auto leading-relaxed font-medium">
+            วิเคราะห์และติดตามความคืบหน้าของโภชนาการในแต่ละช่วงเวลา
+          </p>
         </div>
-      </div>
 
-      {/* Overview Stats */}
-      <div className="bg-gradient-to-r from-green-400 to-green-600 text-white rounded-xl p-6 shadow-lg">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center">
-            <div className="text-3xl font-bold mb-1">
-              {summaryData.avgCalories}
+        {/* Time Range Selector */}
+        <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-6 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+            <div className="flex items-center">
+              <div className="p-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl shadow-lg mr-4">
+                <span className="text-2xl text-white">📅</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-blue-800">
+                ช่วงเวลาที่ต้องการดู
+              </h2>
             </div>
-            <div className="text-green-100">แคลอรี่เฉลี่ย/วัน</div>
-            <div className="text-sm text-green-200">
-              เป้าหมาย: {summaryData.targetCalories}
-            </div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold mb-1">
-              {summaryData.totalDays}
-            </div>
-            <div className="text-green-100">วันที่บันทึก</div>
-            <div className="text-sm text-green-200">
-              {summaryData.period}
-            </div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold mb-1">
-              {Math.round((summaryData.avgCalories / summaryData.targetCalories) * 100)}%
-            </div>
-            <div className="text-green-100">ความสำเร็จ</div>
-            <div className="text-sm text-green-200">
-              ของเป้าหมาย
+            <div className="flex bg-gradient-to-r from-gray-100 to-gray-200 rounded-2xl p-1 shadow-md">
+              <button
+                onClick={() => setTimeRange('week')}
+                className={`flex-1 sm:flex-none px-6 py-3 rounded-xl transition-all font-medium ${
+                  timeRange === 'week'
+                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg transform scale-105'
+                    : 'text-gray-600 hover:text-gray-800 hover:bg-white/50'
+                }`}
+              >
+                สัปดาห์
+              </button>
+              <button
+                onClick={() => setTimeRange('month')}
+                className={`flex-1 sm:flex-none px-6 py-3 rounded-xl transition-all font-medium ${
+                  timeRange === 'month'
+                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg transform scale-105'
+                    : 'text-gray-600 hover:text-gray-800 hover:bg-white/50'
+                }`}
+              >
+                เดือน
+              </button>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Nutrition Breakdown */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
-        <h3 className="text-xl font-bold text-gray-800 mb-6">
-          สรุปโภชนาการเฉลี่ย
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(summaryData.nutrition).map(([key, nutrient]) => {
-            const icons = {
-              protein: '🥩',
-              carbs: '🍞',
-              fat: '🥑',
-              fiber: '🥬',
-              water: '💧'
-            }
-            
-            const names = {
-              protein: 'โปรตีน',
-              carbs: 'คาร์โบไhydrate',
-              fat: 'ไขมัน',
-              fiber: 'ไฟเบอร์',
-              water: 'น้ำ'
-            }
+        {/* Overview Stats */}
+        <div className="bg-gradient-to-r from-green-400 to-emerald-600 text-white rounded-3xl p-8 shadow-2xl border border-green-300 hover:shadow-3xl transition-all duration-500">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+              <div className="text-4xl font-bold mb-2">
+                {summaryData.avgCalories}
+              </div>
+              <div className="text-green-100 font-medium">แคลอรี่เฉลี่ย/วัน</div>
+              <div className="text-sm text-green-200 mt-1">
+                เป้าหมาย: {summaryData.targetCalories}
+              </div>
+            </div>
+            <div className="text-center bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+              <div className="text-4xl font-bold mb-2">
+                {summaryData.totalDays}
+              </div>
+              <div className="text-green-100 font-medium">วันที่บันทึก</div>
+              <div className="text-sm text-green-200 mt-1">
+                {summaryData.period}
+              </div>
+            </div>
+            <div className="text-center bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30">
+              <div className="text-4xl font-bold mb-2">
+                {Math.round((summaryData.avgCalories / summaryData.targetCalories) * 100)}%
+              </div>
+              <div className="text-green-100 font-medium">ความสำเร็จ</div>
+              <div className="text-sm text-green-200 mt-1">
+                ของเป้าหมาย
+              </div>
+            </div>
+          </div>
+        </div>
 
-            return (
-              <div key={key} className="border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-2xl">{icons[key]}</span>
-                    <span className="font-medium text-gray-800">
-                      {names[key]}
+        {/* Nutrition Breakdown */}
+        <div className="bg-white/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/20">
+          <div className="flex items-center mb-8">
+            <div className="p-3 bg-gradient-to-r from-orange-400 to-red-500 rounded-2xl shadow-lg mr-4">
+              <span className="text-2xl text-white">🍽️</span>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800">
+              สรุปโภชนาการเฉลี่ย
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Object.entries(summaryData.nutrition).map(([key, nutrient]) => {
+              const icons = {
+                protein: '🥩',
+                carbs: '🍞',
+                fat: '🥑',
+                fiber: '🥬',
+                water: '💧'
+              }
+              
+              const names = {
+                protein: 'โปรตีน',
+                carbs: 'คาร์โบไhydrate',
+                fat: 'ไขมัน',
+                fiber: 'ไฟเบอร์',
+                water: 'น้ำ'
+              }
+
+              return (
+                <div key={key} className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-white rounded-xl shadow-sm">
+                        <span className="text-2xl">{icons[key]}</span>
+                      </div>
+                      <span className="font-bold text-gray-800">
+                        {names[key]}
+                      </span>
+                    </div>
+                    <span className={`font-bold text-lg ${getScoreColor(nutrient.avg, nutrient.target)}`}>
+                      {nutrient.avg} {nutrient.unit}
                     </span>
                   </div>
-                  <span className={`font-bold ${getScoreColor(nutrient.avg, nutrient.target)}`}>
-                    {nutrient.avg} {nutrient.unit}
+                  <div className="space-y-3">
+                    <div className="flex justify-between text-sm text-gray-600">
+                      <span>เป้าหมาย: {nutrient.target} {nutrient.unit}</span>
+                      <span className="font-medium">
+                        {Math.round((nutrient.avg / nutrient.target) * 100)}%
+                      </span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-3 shadow-inner">
+                      <div 
+                        className="bg-gradient-to-r from-green-400 to-green-600 h-3 rounded-full transition-all duration-1000 shadow-sm"
+                        style={{ width: `${getProgressWidth(nutrient.avg, nutrient.target)}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Charts */}
+        <div className="bg-white/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/20">
+          <div className="flex items-center mb-8">
+            <div className="p-3 bg-gradient-to-r from-purple-400 to-blue-500 rounded-2xl shadow-lg mr-4">
+              <span className="text-2xl text-white">📈</span>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800">
+              กราหแสดงแนวโน้ม
+            </h3>
+          </div>
+          
+          {timeRange === 'week' ? (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h4 className="text-lg font-medium text-gray-600">
+                  แคลอรี่รายวัน
+                </h4>
+                <div className="text-sm text-gray-500">
+                  เป้าหมาย: {summaryData.targetCalories} kcal
+                </div>
+              </div>
+              
+              <div className="relative">
+                {/* Target line */}
+                <div 
+                  className="absolute w-full border-t-2 border-dashed border-red-300 z-10"
+                  style={{ top: `${100 - (summaryData.targetCalories / 2500) * 100}%` }}
+                >
+                  <span className="absolute right-0 -top-6 text-xs text-red-500 font-medium bg-red-50 px-2 py-1 rounded">
+                    เป้าหมาย
                   </span>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm text-gray-600">
-                    <span>เป้าหมาย: {nutrient.target} {nutrient.unit}</span>
-                    <span>
-                      {Math.round((nutrient.avg / nutrient.target) * 100)}%
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
-                      className="bg-green-500 h-2 rounded-full transition-all"
-                      style={{ width: `${getProgressWidth(nutrient.avg, nutrient.target)}%` }}
-                    ></div>
-                  </div>
+                
+                <div className="flex items-end justify-between h-72 bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                  {summaryData.dailyData.map((day, index) => (
+                    <div key={index} className="flex flex-col items-center flex-1 max-w-16">
+                      <div className="relative w-full h-60 flex items-end">
+                        <div 
+                          className={`w-full rounded-t-lg transition-all duration-700 ease-out ${
+                            day.calories > summaryData.targetCalories 
+                              ? 'bg-gradient-to-t from-orange-400 to-orange-500' 
+                              : 'bg-gradient-to-t from-green-400 to-green-500'
+                          }`}
+                          style={{ 
+                            height: `${Math.min((day.calories / 2500) * 100, 100)}%`,
+                            minHeight: '8px'
+                          }}
+                        >
+                          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-semibold text-gray-700 bg-white px-2 py-1 rounded shadow-sm border whitespace-nowrap">
+                            {day.calories}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-4 text-xs font-medium text-gray-600 text-center">
+                        {day.day.slice(0, 3)}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            )
-          })}
-        </div>
-      </div>
-
-      {/* Charts */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
-        <h3 className="text-xl font-bold text-gray-800 mb-6">
-          กราฟแสดงแนวโน้ม
-        </h3>
-        
-        {timeRange === 'week' ? (
-          <div className="space-y-6">
-            <h4 className="text-lg font-medium text-gray-700">
-              แคลอรี่รายวัน
-            </h4>
-            <div className="flex items-end justify-between h-64 space-x-2">
-              {summaryData.dailyData.map((day, index) => (
-                <div key={index} className="flex flex-col items-center flex-1">
-                  <div className="relative w-full bg-gray-200 rounded-t-lg overflow-hidden" style={{ height: '200px' }}>
-                    <div 
-                      className="absolute bottom-0 w-full bg-gradient-to-t from-green-400 to-green-600 rounded-t-lg transition-all duration-1000"
-                      style={{ height: `${(day.calories / 2500) * 100}%` }}
-                    ></div>
-                    <div className="absolute top-2 left-0 right-0 text-center">
-                      <span className="text-xs font-medium text-gray-600">
-                        {day.calories}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mt-2 text-sm font-medium text-gray-700">
-                    {day.day.slice(0, 2)}
-                  </div>
-                </div>
-              ))}
             </div>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            <h4 className="text-lg font-medium text-gray-700">
-              แคลอรี่รายสัปดาห์
-            </h4>
-            <div className="flex items-end justify-between h-64 space-x-4">
-              {summaryData.weeklyData.map((week, index) => (
-                <div key={index} className="flex flex-col items-center flex-1">
-                  <div className="relative w-full bg-gray-200 rounded-t-lg overflow-hidden" style={{ height: '200px' }}>
-                    <div 
-                      className="absolute bottom-0 w-full bg-gradient-to-t from-blue-400 to-blue-600 rounded-t-lg transition-all duration-1000"
-                      style={{ height: `${(week.calories / 2500) * 100}%` }}
-                    ></div>
-                    <div className="absolute top-2 left-0 right-0 text-center">
-                      <span className="text-xs font-medium text-gray-600">
-                        {week.calories}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mt-2 text-sm font-medium text-gray-700">
-                    {week.week}
-                  </div>
+          ) : (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h4 className="text-lg font-medium text-gray-600">
+                  แคลอรี่รายสัปดาห์
+                </h4>
+                <div className="text-sm text-gray-500">
+                  เป้าหมาย: {summaryData.targetCalories} kcal
                 </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Achievements */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
-        <h3 className="text-xl font-bold text-gray-800 mb-6">
-          ความสำเร็จ ({summaryData.period})
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {summaryData.achievements.map((achievement, index) => (
-            <div
-              key={index}
-              className={`p-4 rounded-lg border-2 text-center transition-all ${
-                achievement.achieved
-                  ? 'border-green-500 bg-green-50 text-green-700'
-                  : 'border-gray-300 bg-gray-50 text-gray-500'
-              }`}
-            >
-              <div className="text-3xl mb-2">{achievement.icon}</div>
-              <div className="font-medium">{achievement.name}</div>
-              <div className="text-sm mt-1">
-                {achievement.achieved ? '✅ สำเร็จ' : '⏳ ยังไม่สำเร็จ'}
+              </div>
+              
+              <div className="relative">
+                {/* Target line */}
+                <div 
+                  className="absolute w-full border-t-2 border-dashed border-red-300 z-10"
+                  style={{ top: `${100 - (summaryData.targetCalories / 2500) * 100}%` }}
+                >
+                  <span className="absolute right-0 -top-6 text-xs text-red-500 font-medium bg-red-50 px-2 py-1 rounded">
+                    เป้าหมาย
+                  </span>
+                </div>
+                
+                <div className="flex items-end justify-between h-72 bg-gray-50 rounded-2xl p-6 border border-gray-200 space-x-4">
+                  {summaryData.weeklyData.map((week, index) => (
+                    <div key={index} className="flex flex-col items-center flex-1">
+                      <div className="relative w-full h-60 flex items-end">
+                        <div 
+                          className={`w-full rounded-t-lg transition-all duration-700 ease-out ${
+                            week.calories > summaryData.targetCalories 
+                              ? 'bg-gradient-to-t from-orange-400 to-orange-500' 
+                              : 'bg-gradient-to-t from-blue-400 to-blue-500'
+                          }`}
+                          style={{ 
+                            height: `${Math.min((week.calories / 2500) * 100, 100)}%`,
+                            minHeight: '8px'
+                          }}
+                        >
+                          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-semibold text-gray-700 bg-white px-2 py-1 rounded shadow-sm border whitespace-nowrap">
+                            {week.calories}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-4 text-xs font-medium text-gray-600 text-center">
+                        {week.week}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          ))}
+          )}
         </div>
-      </div>
 
-      {/* Recommendations */}
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">
-          💡 คำแนะนำสำหรับสัปดาห์หน้า
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <h4 className="font-medium text-gray-700">จุดที่ควรปรับปรุง:</h4>
-            <ul className="space-y-1 text-sm text-gray-600">
-              <li>• เพิ่มการดื่มน้ำให้ครบ 8 แก้วต่อวัน</li>
-              <li>• เพิ่มไฟเบอร์จากผักและผลไม้</li>
-              <li>• ควบคุมแคลอรี่ให้ใกล้เคียงเป้าหมาย</li>
-            </ul>
+        {/* Achievements */}
+        <div className="bg-white/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/20">
+          <div className="flex items-center mb-8">
+            <div className="p-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl shadow-lg mr-4">
+              <span className="text-2xl text-white">🏆</span>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800">
+              ความสำเร็จ ({summaryData.period})
+            </h3>
           </div>
-          <div className="space-y-2">
-            <h4 className="font-medium text-gray-700">จุดเด่นที่ควรรักษา:</h4>
-            <ul className="space-y-1 text-sm text-gray-600">
-              <li>• ปริมาณโปรตีนที่เหมาะสม</li>
-              <li>• การบันทึกอาหารที่สม่ำเสมอ</li>
-              <li>• สัดส่วนมหาลโภชนาการที่สมดุล</li>
-            </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {summaryData.achievements.map((achievement, index) => (
+              <div
+                key={index}
+                className={`p-6 rounded-2xl border-2 text-center transition-all duration-300 transform hover:scale-105 shadow-lg ${
+                  achievement.achieved
+                    ? 'border-green-400 bg-gradient-to-br from-green-50 to-green-100 text-green-700 shadow-green-200/50'
+                    : 'border-gray-300 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-500 shadow-gray-200/50'
+                }`}
+              >
+                <div className={`text-4xl mb-3 ${achievement.achieved ? 'animate-pulse' : ''}`}>
+                  {achievement.icon}
+                </div>
+                <div className="font-bold text-base mb-2">{achievement.name}</div>
+                <div className={`text-sm font-medium px-3 py-1 rounded-full ${
+                  achievement.achieved 
+                    ? 'bg-green-200 text-green-800' 
+                    : 'bg-gray-200 text-gray-600'
+                }`}>
+                  {achievement.achieved ? '✅ สำเร็จ' : '⏳ ยังไม่สำเร็จ'}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Recommendations */}
+        <div className="bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 rounded-3xl p-8 border-2 border-blue-200 shadow-xl">
+          <div className="flex items-center mb-6">
+            <div className="p-3 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl shadow-lg mr-4">
+              <span className="text-2xl text-white">💡</span>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800">
+              คำแนะนำสำหรับสัปดาห์หน้า
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-red-200">
+              <h4 className="font-bold text-lg text-red-700 mb-4 flex items-center">
+                <span className="mr-2">⚠️</span>
+                จุดที่ควรปรับปรุง:
+              </h4>
+              <ul className="space-y-3">
+                <li className="flex items-start text-gray-700">
+                  <span className="text-red-500 mr-3 mt-1">•</span>
+                  <span>เพิ่มการดื่มน้ำให้ครบ 8 แก้วต่อวัน</span>
+                </li>
+                <li className="flex items-start text-gray-700">
+                  <span className="text-red-500 mr-3 mt-1">•</span>
+                  <span>เพิ่มไฟเบอร์จากผักและผลไม้</span>
+                </li>
+                <li className="flex items-start text-gray-700">
+                  <span className="text-red-500 mr-3 mt-1">•</span>
+                  <span>ควบคุมแคลอรี่ให้ใกล้เคียงเป้าหมาย</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-green-200">
+              <h4 className="font-bold text-lg text-green-700 mb-4 flex items-center">
+                <span className="mr-2">✅</span>
+                จุดเด่นที่ควรรักษา:
+              </h4>
+              <ul className="space-y-3">
+                <li className="flex items-start text-gray-700">
+                  <span className="text-green-500 mr-3 mt-1">•</span>
+                  <span>ปริมาณโปรตีนที่เหมาะสม</span>
+                </li>
+                <li className="flex items-start text-gray-700">
+                  <span className="text-green-500 mr-3 mt-1">•</span>
+                  <span>การบันทึกอาหารที่สม่ำเสมอ</span>
+                </li>
+                <li className="flex items-start text-gray-700">
+                  <span className="text-green-500 mr-3 mt-1">•</span>
+                  <span>สัดส่วนมหาลโภชนาการที่สมดุล</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

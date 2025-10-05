@@ -73,63 +73,81 @@ const AdminPanel = () => {
   ]
 
   const DashboardContent = () => (
-    <div className="space-y-8">
-      <h2 className="text-3xl font-bold text-green-900 mb-2">แดชบอร์ดผู้ดูแลระบบ</h2>
+    <div className="space-y-6">
+      <div className="flex items-center mb-6">
+        <div className="p-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl shadow-lg mr-4">
+          <span className="text-2xl text-white">📊</span>
+        </div>
+        <h2 className="text-2xl font-bold text-gray-800">แดชบอร์ดผู้ดูแลระบบ</h2>
+      </div>
 
       {/* Statistic Cards */}
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-2xl shadow-lg flex flex-col justify-between min-h-[120px]">
-          <div className="flex items-center justify-between mb-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-5 rounded-3xl shadow-xl border border-blue-300 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+          <div className="flex items-center justify-between">
             <div>
-              <div className="text-4xl font-extrabold tracking-tight drop-shadow">{statistics.totalUsers}</div>
-              <div className="text-base font-medium text-blue-100 mt-1">สมาชิกทั้งหมด</div>
+              <div className="text-3xl font-bold mb-2">{statistics.totalUsers}</div>
+              <div className="text-sm font-medium text-blue-100">สมาชิกทั้งหมด</div>
             </div>
-            <div className="text-4xl opacity-80">👥</div>
+            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+              <span className="text-3xl">👥</span>
+            </div>
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-2xl shadow-lg flex flex-col justify-between min-h-[120px]">
-          <div className="flex items-center justify-between mb-2">
+        <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-5 rounded-3xl shadow-xl border border-green-300 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+          <div className="flex items-center justify-between">
             <div>
-              <div className="text-4xl font-extrabold tracking-tight drop-shadow">{statistics.activeUsers}</div>
-              <div className="text-base font-medium text-green-100 mt-1">สมาชิกที่ใช้งาน</div>
+              <div className="text-3xl font-bold mb-2">{statistics.activeUsers}</div>
+              <div className="text-sm font-medium text-green-100">สมาชิกที่ใช้งาน</div>
             </div>
-            <div className="text-4xl opacity-80">✅</div>
+            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+              <span className="text-3xl">✅</span>
+            </div>
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-2xl shadow-lg flex flex-col justify-between min-h-[120px]">
-          <div className="flex items-center justify-between mb-2">
+        <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-5 rounded-3xl shadow-xl border border-purple-300 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+          <div className="flex items-center justify-between">
             <div>
-              <div className="text-4xl font-extrabold tracking-tight drop-shadow">{statistics.totalCalculations}</div>
-              <div className="text-base font-medium text-purple-100 mt-1">การคำนวณทั้งหมด</div>
+              <div className="text-3xl font-bold mb-2">{statistics.totalCalculations}</div>
+              <div className="text-sm font-medium text-purple-100">การคำนวณทั้งหมด</div>
             </div>
-            <div className="text-4xl opacity-80">🧮</div>
+            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+              <span className="text-3xl">🧮</span>
+            </div>
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-2xl shadow-lg flex flex-col justify-between min-h-[120px]">
-          <div className="flex items-center justify-between mb-2">
+        <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-5 rounded-3xl shadow-xl border border-orange-300 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+          <div className="flex items-center justify-between">
             <div>
-              <div className="text-4xl font-extrabold tracking-tight drop-shadow">{statistics.dailyActiveUsers}</div>
-              <div className="text-base font-medium text-orange-100 mt-1">ใช้งานวันนี้</div>
+              <div className="text-3xl font-bold mb-2">{statistics.dailyActiveUsers}</div>
+              <div className="text-sm font-medium text-orange-100">ใช้งานวันนี้</div>
             </div>
-            <div className="text-4xl opacity-80">📅</div>
+            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+              <span className="text-3xl">📅</span>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Weekly Usage & Recent Activity */}
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="bg-white p-6 rounded-2xl shadow-md">
-          <h3 className="text-xl font-bold text-green-900 mb-4 flex items-center gap-2">📈 <span>การใช้งานรายสัปดาห์</span></h3>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-3xl p-5 shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div className="flex items-center mb-5">
+            <div className="p-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl shadow-lg mr-3">
+              <span className="text-xl text-white">📈</span>
+            </div>
+            <h3 className="text-lg font-bold text-gray-800">การใช้งานรายสัปดาห์</h3>
+          </div>
           <div className="space-y-4">
             {['จันทร์', 'อังคาร', 'พุธ', 'พฤหัส', 'ศุกร์', 'เสาร์', 'อาทิตย์'].map((day, index) => (
               <div key={day} className="flex items-center">
-                <div className="w-20 text-base font-semibold text-green-900">{day}</div>
-                <div className="flex-1 bg-gray-200 rounded-full h-4 ml-3">
+                <div className="w-20 text-sm font-bold text-gray-700">{day}</div>
+                <div className="flex-1 bg-gray-200 rounded-full h-3 ml-3 shadow-inner">
                   <div 
-                    className="bg-green-500 h-4 rounded-full transition-all duration-500"
+                    className="bg-gradient-to-r from-blue-400 to-blue-600 h-3 rounded-full transition-all duration-1000 shadow-sm"
                     style={{ width: `${Math.random() * 80 + 20}%` }}
                   ></div>
                 </div>
@@ -138,27 +156,38 @@ const AdminPanel = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl shadow-md">
-          <h3 className="text-xl font-bold text-green-900 mb-4 flex items-center gap-2">🚀 <span>กิจกรรมล่าสุด</span></h3>
-          <div className="space-y-4">
-            <div className="flex items-center p-4 bg-green-50 rounded-xl">
-              <div className="text-green-600 mr-3 text-2xl">👤</div>
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-3xl p-5 shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div className="flex items-center mb-5">
+            <div className="p-2 bg-gradient-to-r from-green-400 to-green-600 rounded-xl shadow-lg mr-3">
+              <span className="text-xl text-white">🚀</span>
+            </div>
+            <h3 className="text-lg font-bold text-gray-800">กิจกรรมล่าสุด</h3>
+          </div>
+          <div className="space-y-3">
+            <div className="flex items-center p-3 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-green-200 hover:shadow-lg transition-all">
+              <div className="p-2 bg-green-100 rounded-xl mr-3">
+                <span className="text-green-600 text-lg">👤</span>
+              </div>
               <div className="flex-1">
-                <div className="text-base font-semibold text-green-900">สมาชิกใหม่เข้าร่วม</div>
+                <div className="text-sm font-bold text-gray-800">สมาชิกใหม่เข้าร่วม</div>
                 <div className="text-xs text-gray-500 mt-1">5 นาทีที่แล้ว</div>
               </div>
             </div>
-            <div className="flex items-center p-4 bg-blue-50 rounded-xl">
-              <div className="text-blue-600 mr-3 text-2xl">🧮</div>
+            <div className="flex items-center p-3 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-blue-200 hover:shadow-lg transition-all">
+              <div className="p-2 bg-blue-100 rounded-xl mr-3">
+                <span className="text-blue-600 text-lg">🧮</span>
+              </div>
               <div className="flex-1">
-                <div className="text-base font-semibold text-blue-900">การคำนวณใหม่ 12 ครั้ง</div>
+                <div className="text-sm font-bold text-gray-800">การคำนวณใหม่ 12 ครั้ง</div>
                 <div className="text-xs text-gray-500 mt-1">15 นาทีที่แล้ว</div>
               </div>
             </div>
-            <div className="flex items-center p-4 bg-purple-50 rounded-xl">
-              <div className="text-purple-600 mr-3 text-2xl">📊</div>
+            <div className="flex items-center p-3 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-purple-200 hover:shadow-lg transition-all">
+              <div className="p-2 bg-purple-100 rounded-xl mr-3">
+                <span className="text-purple-600 text-lg">📊</span>
+              </div>
               <div className="flex-1">
-                <div className="text-base font-semibold text-purple-900">รายงานรายวันสร้างแล้ว</div>
+                <div className="text-sm font-bold text-gray-800">รายงานรายวันสร้างแล้ว</div>
                 <div className="text-xs text-gray-500 mt-1">1 ชั่วโมงที่แล้ว</div>
               </div>
             </div>
@@ -170,60 +199,68 @@ const AdminPanel = () => {
 
   const UsersContent = () => (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-800">จัดการสมาชิก</h2>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="flex items-center">
+          <div className="p-3 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl shadow-lg mr-4">
+            <span className="text-2xl text-white">👥</span>
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800">จัดการสมาชิก</h2>
+        </div>
         <button
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+          className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-2xl hover:from-green-600 hover:to-green-700 transition-all font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
           onClick={handleAddUser}
         >
-          + เพิ่มสมาชิกใหม่
+          <span className="mr-2">+</span>
+          เพิ่มสมาชิกใหม่
         </button>
       </div>
 
-  <div className="bg-gradient-to-br from-green-50 via-white to-blue-50 rounded-2xl shadow-xl overflow-hidden border border-green-100 mb-8">
+      <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden border border-white/20 mb-8">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-green-100">
+            <thead className="bg-gradient-to-r from-green-400 to-blue-500">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-bold text-green-900 uppercase">ชื่อ</th>
-                <th className="px-6 py-3 text-left text-xs font-bold text-green-900 uppercase">อีเมล</th>
-                <th className="px-6 py-3 text-left text-xs font-bold text-green-900 uppercase">สถานะ</th>
-                <th className="px-6 py-3 text-left text-xs font-bold text-green-900 uppercase">วันที่เข้าร่วม</th>
-                <th className="px-6 py-3 text-left text-xs font-bold text-green-900 uppercase">จัดการ</th>
+                <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wide">ชื่อ</th>
+                <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wide">อีเมล</th>
+                <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wide">สถานะ</th>
+                <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wide">วันที่เข้าร่วม</th>
+                <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wide">จัดการ</th>
               </tr>
             </thead>
             <tbody>
               {users.map((user, idx) => (
-                <tr key={user.id} className={idx % 2 === 0 ? 'bg-white' : 'bg-green-50'}>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                <tr key={user.id} className={`${idx % 2 === 0 ? 'bg-white/90' : 'bg-blue-50/90'} hover:bg-blue-100/90 transition-all duration-200`}>
+                  <td className="px-6 py-5 whitespace-nowrap">
                     <div className="flex items-center">
-                      <div className="text-2xl mr-3 text-purple-600">👤</div>
-                      <div className="text-base font-semibold text-gray-900">{user.name}</div>
+                      <div className="p-2 bg-purple-100 rounded-xl mr-3">
+                        <span className="text-purple-600 text-xl">👤</span>
+                      </div>
+                      <div className="text-base font-bold text-gray-900">{user.name}</div>
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-base text-blue-700 font-medium">
+                  <td className="px-6 py-5 whitespace-nowrap text-base text-blue-700 font-medium">
                     {user.email}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-3 py-1 text-sm font-bold rounded-full shadow-sm ${
+                  <td className="px-6 py-5 whitespace-nowrap">
+                    <span className={`inline-flex px-4 py-2 text-sm font-bold rounded-2xl shadow-lg ${
                       user.status === 'active' 
-                        ? 'bg-green-200 text-green-900' 
-                        : 'bg-red-200 text-red-900'
+                        ? 'bg-gradient-to-r from-green-400 to-green-500 text-white' 
+                        : 'bg-gradient-to-r from-red-400 to-red-500 text-white'
                     }`}>
                       {user.status === 'active' ? 'ใช้งาน' : 'ไม่ใช้งาน'}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-base text-gray-600 font-medium">
+                  <td className="px-6 py-5 whitespace-nowrap text-base text-gray-600 font-medium">
                     {user.joinDate}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-base">
-                    <div className="flex gap-4">
+                  <td className="px-6 py-5 whitespace-nowrap text-base">
+                    <div className="flex gap-3">
                       <button
-                        className="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-4 py-1 rounded-lg font-semibold shadow hover:from-blue-500 hover:to-blue-700 transition"
+                        className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-xl font-medium shadow-lg hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-105"
                         onClick={() => handleEditUser(user)}
                       >แก้ไข</button>
                       <button
-                        className="bg-gradient-to-r from-red-400 to-red-600 text-white px-4 py-1 rounded-lg font-semibold shadow hover:from-red-500 hover:to-red-700 transition"
+                        className="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-xl font-medium shadow-lg hover:from-red-600 hover:to-red-700 transition-all transform hover:scale-105"
                         onClick={() => handleDeleteUser(user.id)}
                       >ลบ</button>
                     </div>
@@ -237,36 +274,41 @@ const AdminPanel = () => {
 
       {/* Modal for add/edit user */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
-            <h3 className="text-xl font-bold mb-4 text-green-900">
-              {modalType === 'add' ? 'เพิ่มสมาชิกใหม่' : 'แก้ไขข้อมูลสมาชิก'}
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-8 w-full max-w-md border border-white/20">
+            <div className="flex items-center mb-6">
+              <div className="p-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl shadow-lg mr-4">
+                <span className="text-2xl text-white">{modalType === 'add' ? '➕' : '✏️'}</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-800">
+                {modalType === 'add' ? 'เพิ่มสมาชิกใหม่' : 'แก้ไขข้อมูลสมาชิก'}
+              </h3>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">ชื่อ</label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">ชื่อ</label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-green-900"
+                  className="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 focus:ring-4 focus:ring-green-300 focus:border-green-500 bg-white text-gray-900 font-medium shadow-sm hover:shadow-md transition-all"
                   value={form.name}
                   onChange={e => setForm({ ...form, name: e.target.value })}
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">อีเมล</label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">อีเมล</label>
                 <input
                   type="email"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-green-900"
+                  className="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 focus:ring-4 focus:ring-green-300 focus:border-green-500 bg-white text-gray-900 font-medium shadow-sm hover:shadow-md transition-all"
                   value={form.email}
                   onChange={e => setForm({ ...form, email: e.target.value })}
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">สถานะ</label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">สถานะ</label>
                 <select
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-green-900"
+                  className="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 focus:ring-4 focus:ring-green-300 focus:border-green-500 bg-white text-gray-900 font-medium shadow-sm hover:shadow-md transition-all cursor-pointer"
                   value={form.status}
                   onChange={e => setForm({ ...form, status: e.target.value })}
                 >
@@ -274,15 +316,15 @@ const AdminPanel = () => {
                   <option value="inactive">ไม่ใช้งาน</option>
                 </select>
               </div>
-              <div className="flex justify-end gap-2 mt-6">
+              <div className="flex justify-end gap-4 mt-8">
                 <button
                   type="button"
-                  className="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  className="px-6 py-3 rounded-2xl bg-gray-200 text-gray-700 hover:bg-gray-300 font-medium transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
                   onClick={() => { setShowModal(false); setEditUser(null); }}
                 >ยกเลิก</button>
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700"
+                  className="px-8 py-3 rounded-2xl bg-gradient-to-r from-green-500 to-green-600 text-white font-bold hover:from-green-600 hover:to-green-700 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
                 >{modalType === 'add' ? 'เพิ่ม' : 'บันทึก'}</button>
               </div>
             </form>
@@ -338,44 +380,55 @@ const AdminPanel = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="bg-gradient-to-r from-green-600 to-green-700 text-white p-6 rounded-lg mb-8">
-        <div className="flex items-center space-x-3">
-          <div className="text-3xl">👑</div>
-          <div>
-            <h1 className="text-2xl font-bold">แผงควบคุมผู้ดูแลระบบ</h1>
-            <p className="text-green-100">ยินดีต้อนรับ, {user?.name}</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 w-full flex flex-col items-center justify-start pb-24">
+      <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        {/* Header */}
+        <div className="text-center mt-6 mb-8 animate-fade-in">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mb-6 shadow-xl">
+            <span className="text-3xl text-white">👑</span>
           </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Sidebar */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-lg shadow-md p-4 sticky top-4">
-            <nav className="flex flex-col gap-3">
-              {sections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => setActiveSection(section.id)}
-                  className={`w-full text-left px-4 py-3 rounded-xl transition-colors flex items-center gap-3 shadow-sm focus:outline-green-500
-                    ${activeSection === section.id
-                      ? 'bg-gradient-to-r from-green-100 to-green-200 text-green-700 font-semibold border border-green-300'
-                      : 'bg-white text-gray-700 hover:bg-green-50 border border-gray-200'
-                  }`}
-                >
-                  <span className="text-xl">{section.icon}</span>
-                  <span>{section.name}</span>
-                </button>
-              ))}
-            </nav>
-          </div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            แผงควบคุมผู้ดูแลระบบ
+          </h1>
+          <p className="text-base sm:text-lg text-blue-700 max-w-2xl mx-auto leading-relaxed font-medium">
+            ยินดีต้อนรับ, {user?.name}
+          </p>
         </div>
 
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          <div className="bg-white rounded-lg shadow-md p-6 min-h-[600px]">
-            {renderContent()}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          {/* Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl border border-white/20 p-5 sticky top-4">
+              <div className="flex items-center mb-5">
+                <div className="p-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-xl shadow-lg mr-3">
+                  <span className="text-lg text-white">📋</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-800">เมนู</h3>
+              </div>
+              <nav className="flex flex-col gap-2">
+                {sections.map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => setActiveSection(section.id)}
+                    className={`w-full text-left px-4 py-3 rounded-2xl transition-all duration-300 flex items-center gap-3 shadow-sm transform hover:scale-105
+                      ${activeSection === section.id
+                        ? 'bg-gradient-to-r from-green-400 to-green-600 text-white font-bold shadow-lg scale-105'
+                        : 'bg-white/70 text-gray-700 hover:bg-green-50 border border-gray-200 hover:border-green-300'
+                    }`}
+                  >
+                    <span className="text-lg">{section.icon}</span>
+                    <span className="font-medium">{section.name}</span>
+                  </button>
+                ))}
+              </nav>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="lg:col-span-3">
+            <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 p-6 min-h-[600px]">
+              {renderContent()}
+            </div>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Confetti from "react-confetti";
 
-const TDEECalculator = () => {
+const TDEECalculator = ({ goToDashboard }) => {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [age, setAge] = useState("");
@@ -72,7 +72,7 @@ const TDEECalculator = () => {
       <button
         type="button"
         className="mb-4 px-4 py-2 bg-gradient-to-r from-green-200 to-green-400 text-green-900 font-bold rounded-xl shadow hover:from-green-300 hover:to-green-500 transition-all self-start"
-        onClick={() => typeof goToDashboard === 'function' && goToDashboard()}
+        onClick={() => goToDashboard && goToDashboard()}
       >
         ← ย้อนกลับไปแดชบอร์ด
       </button>

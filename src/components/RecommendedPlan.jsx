@@ -117,71 +117,84 @@ const RecommendedPlan = () => {
   }
 
   return (
-    <div className="w-full max-w-none mx-auto p-2 sm:p-4 lg:p-6 space-y-4 sm:space-y-6">
-      {/* Header */}
-      <div className="text-center mb-6 sm:mb-8">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
-          แผนอาหารที่แนะนำ
-        </h1>
-        <p className="text-sm sm:text-base text-gray-600">
-          รับแผนอาหารส่วนตัวที่เหมาะสมกับเป้าหมายและไลฟ์สไตล์ของคุณ
-        </p>
-      </div>
-
-      {/* Settings */}
-      <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg">
-        <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">
-          ตั้งค่าแผนอาหารของคุณ
-        </h2>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-          {/* Goal Selection */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">
-              เป้าหมายของคุณ
-            </label>
-            <div className="flex flex-col gap-3">
-              {Object.entries(goals).map(([key, goal]) => (
-                <button
-                  key={key}
-                  onClick={() => setSelectedGoal(key)}
-                  className={`w-full p-3 rounded-xl border-2 text-left transition-all shadow-sm focus:outline-green-500
-                    ${selectedGoal === key
-                      ? key === 'lose'
-                        ? 'border-red-400 bg-gradient-to-r from-red-100 to-red-200 text-red-700'
-                      : key === 'maintain'
-                        ? 'border-green-400 bg-gradient-to-r from-green-100 to-green-200 text-green-700'
-                      : key === 'gain'
-                        ? 'border-blue-400 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700'
-                      : ''
-                    : key === 'lose'
-                        ? 'border-gray-200 bg-red-50 text-red-700 hover:border-red-300'
-                      : key === 'maintain'
-                        ? 'border-gray-200 bg-green-50 text-green-700 hover:border-green-300'
-                      : key === 'gain'
-                        ? 'border-gray-200 bg-blue-50 text-blue-700 hover:border-blue-300'
-                      : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="text-xl">{goal.icon}</span>
-                    <span className="font-medium">{goal.name}</span>
-                  </div>
-                </button>
-              ))}
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 w-full flex flex-col items-center justify-start pb-24">
+      <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-y-6 sm:gap-y-8">
+        {/* Header */}
+        <div className="text-center mt-6 mb-8 animate-fade-in">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mb-6 shadow-xl">
+            <span className="text-3xl text-white">🍽️</span>
           </div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            แผนอาหารที่แนะนำ
+          </h1>
+          <p className="text-base sm:text-lg text-blue-700 max-w-2xl mx-auto leading-relaxed font-medium">
+            รับแผนอาหารส่วนตัวที่เหมาะสมกับเป้าหมายและไลฟ์สไตล์ของคุณ
+          </p>
+        </div>
 
-          {/* Activity Level */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">
-              ระดับการออกกำลังกาย
-            </label>
-            <select
-              value={activityLevel}
-              onChange={(e) => setActivityLevel(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-green-900 placeholder:text-green-700"
-            >
+        {/* Settings */}
+        <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-6 sm:p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 animate-slide-up max-w-5xl mx-auto">
+          <div className="flex items-center mb-6 sm:mb-8">
+            <div className="p-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl shadow-lg mr-4">
+              <span className="text-2xl text-white">⚙️</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-blue-800">
+              ตั้งค่าแผนอาหารของคุณ
+            </h2>
+          </div>
+        
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* Goal Selection */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200 shadow-lg">
+              <label className="flex items-center text-base font-bold text-blue-700 mb-4">
+                <span className="mr-3 text-xl">🎯</span>
+                เป้าหมายของคุณ
+              </label>
+              <div className="flex flex-col gap-3">
+                {Object.entries(goals).map(([key, goal]) => (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedGoal(key)}
+                    className={`w-full p-3 rounded-2xl border-2 text-left transition-all shadow-md hover:shadow-lg transform hover:scale-102 focus:outline-none focus:ring-4 focus:ring-green-300
+                      ${selectedGoal === key
+                        ? key === 'lose'
+                          ? 'border-red-400 bg-gradient-to-r from-red-100 to-red-200 text-red-700 shadow-lg scale-105'
+                        : key === 'maintain'
+                          ? 'border-green-400 bg-gradient-to-r from-green-100 to-green-200 text-green-700 shadow-lg scale-105'
+                        : key === 'gain'
+                          ? 'border-blue-400 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700 shadow-lg scale-105'
+                        : ''
+                      : key === 'lose'
+                          ? 'border-gray-200 bg-red-50 text-red-700 hover:border-red-300 hover:bg-red-100'
+                        : key === 'maintain'
+                          ? 'border-gray-200 bg-green-50 text-green-700 hover:border-green-300 hover:bg-green-100'
+                        : key === 'gain'
+                          ? 'border-gray-200 bg-blue-50 text-blue-700 hover:border-blue-300 hover:bg-blue-100'
+                        : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-white/50 rounded-xl shadow-sm">
+                        <span className="text-xl">{goal.icon}</span>
+                      </div>
+                      <span className="font-bold text-base">{goal.name}</span>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Activity Level */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-200 shadow-lg">
+              <label className="flex items-center text-base font-bold text-green-700 mb-4">
+                <span className="mr-3 text-xl">🏃‍♂️</span>
+                ระดับการออกกำลังกาย
+              </label>
+              <select
+                value={activityLevel}
+                onChange={(e) => setActivityLevel(e.target.value)}
+                className="w-full border-2 border-green-300 rounded-2xl px-4 py-3 focus:ring-4 focus:ring-green-300 focus:border-green-500 bg-white text-green-700 text-base shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer font-medium"
+              >
               {Object.entries(activities).map(([key, activity]) => (
                 <option key={key} value={key}>
                   {activity.name}
@@ -190,16 +203,17 @@ const RecommendedPlan = () => {
             </select>
           </div>
 
-          {/* Diet Preference */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">
-              รูปแบบการกิน
-            </label>
-            <select
-              value={dietaryPreference}
-              onChange={(e) => setDietaryPreference(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white text-green-900 placeholder:text-green-700"
-            >
+            {/* Diet Preference */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-200 shadow-lg">
+              <label className="flex items-center text-base font-bold text-purple-700 mb-4">
+                <span className="mr-3 text-xl">🥗</span>
+                รูปแบบการกิน
+              </label>
+              <select
+                value={dietaryPreference}
+                onChange={(e) => setDietaryPreference(e.target.value)}
+                className="w-full border-2 border-purple-300 rounded-2xl px-4 py-3 focus:ring-4 focus:ring-purple-300 focus:border-purple-500 bg-white text-purple-700 text-base shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer font-medium"
+              >
               {Object.entries(dietTypes).map(([key, diet]) => (
                 <option key={key} value={key}>
                   {diet.name} - {diet.description}
@@ -209,142 +223,187 @@ const RecommendedPlan = () => {
           </div>
         </div>
 
-        <div className="mt-6">
-          <button
-            onClick={generatePlan}
-            disabled={isLoading}
-            className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-xl hover:from-green-500 hover:to-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-semibold shadow-lg"
-          >
-            {isLoading ? (
-              <div className="flex items-center space-x-2">
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                <span>กำลังสร้างแผน...</span>
-              </div>
-            ) : (
-              'สร้างแผนอาหาร'
-            )}
-          </button>
+          <div className="mt-8 pt-6 border-t-2 border-gray-200">
+            <div className="flex justify-center">
+              <button
+                onClick={generatePlan}
+                disabled={isLoading}
+                className="px-16 py-5 bg-gradient-to-r from-green-400 to-emerald-600 text-white rounded-3xl hover:from-green-500 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-bold text-xl shadow-2xl hover:shadow-3xl transform hover:scale-110 disabled:transform-none animate-pulse-slow"
+              >
+                {isLoading ? (
+                  <div className="flex items-center space-x-3">
+                    <div className="animate-spin rounded-full h-6 w-6 border-b-3 border-white"></div>
+                    <span className="tracking-wide">กำลังสร้างแผน...</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center space-x-2">
+                    <span className="text-2xl">🍽️</span>
+                    <span className="tracking-wide">สร้างแผนอาหาร</span>
+                  </div>
+                )}
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Recommended Plan */}
-      {recommendedPlan && (
-        <div className="space-y-6">
-          {/* Plan Summary */}
-          <div className="bg-gradient-to-r from-green-400 to-green-600 text-white rounded-xl p-6 shadow-lg">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-2xl font-bold mb-2">
-                  แผนอาหารของคุณ {goals[recommendedPlan.goal].icon}
+        {/* Recommended Plan */}
+        {recommendedPlan && (
+          <div className="space-y-8 animate-fade-in">
+            {/* Plan Summary */}
+            <div className="bg-gradient-to-r from-green-400 to-emerald-600 text-white rounded-3xl p-8 shadow-2xl border border-green-300 hover:shadow-3xl transition-all duration-500">
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center mb-6">
+                    <div className="p-4 bg-white/20 rounded-2xl mr-5 backdrop-blur-sm">
+                      <span className="text-4xl">{goals[recommendedPlan.goal].icon}</span>
+                    </div>
+                    <h3 className="text-3xl font-bold text-shadow-sm">
+                      แผนอาหารของคุณ
+                    </h3>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="bg-white/20 rounded-2xl p-5 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-all duration-300">
+                      <p className="text-green-100 text-sm mb-2 font-medium">เป้าหมาย</p>
+                      <p className="text-2xl font-bold text-shadow-sm">{goals[recommendedPlan.goal].name}</p>
+                    </div>
+                    <div className="bg-white/20 rounded-2xl p-5 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-all duration-300">
+                      <p className="text-green-100 text-sm mb-2 font-medium">แคลอรี่ต่อวัน</p>
+                      <p className="text-2xl font-bold text-shadow-sm">{recommendedPlan.targetCalories} แคลอรี่</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden sm:block text-8xl opacity-20 ml-6 animate-pulse">🎯</div>
+              </div>
+            </div>
+
+            {/* Daily Meals */}
+            <div className="bg-white/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/20">
+              <div className="flex items-center mb-8">
+                <div className="p-3 bg-gradient-to-r from-orange-400 to-red-500 rounded-2xl shadow-lg mr-4">
+                  <span className="text-2xl text-white">🍽️</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800">
+                  ตัวอย่างมื้ออาหาร
                 </h3>
-                <p className="text-green-100">
-                  เป้าหมาย: {goals[recommendedPlan.goal].name}
-                </p>
-                <p className="text-green-100">
-                  แคลอรี่ต่อวัน: {recommendedPlan.targetCalories} แคลอรี่
-                </p>
               </div>
-              <div className="text-6xl opacity-50">🎯</div>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+                {/* Breakfast */}
+                <div className="bg-gradient-to-br from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <h4 className="text-xl font-bold text-gray-800 mb-5 flex items-center">
+                    <div className="p-2 bg-yellow-200 rounded-xl mr-3">
+                      <span className="text-2xl">🌅</span>
+                    </div>
+                    อาหารเช้า
+                  </h4>
+                  <div className="space-y-4">
+                    {recommendedPlan.meals.breakfast.map((meal, index) => (
+                      <div key={index} className="bg-white p-4 rounded-2xl shadow-md border border-yellow-200 hover:shadow-lg transition-all duration-300">
+                        <div className="font-bold text-gray-800 mb-2 text-lg">
+                          {meal.name}
+                        </div>
+                        <div className="text-base font-bold text-yellow-600 mb-3 bg-yellow-100 px-3 py-1 rounded-full inline-block">
+                          🔥 {meal.calories} แคลอรี่
+                        </div>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {meal.items.map((item, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="text-yellow-500 mr-2 mt-1">•</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Lunch */}
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <h4 className="text-xl font-bold text-gray-800 mb-5 flex items-center">
+                    <div className="p-2 bg-orange-200 rounded-xl mr-3">
+                      <span className="text-2xl">☀️</span>
+                    </div>
+                    อาหารกลางวัน
+                  </h4>
+                  <div className="space-y-4">
+                    {recommendedPlan.meals.lunch.map((meal, index) => (
+                      <div key={index} className="bg-white p-4 rounded-2xl shadow-md border border-orange-200 hover:shadow-lg transition-all duration-300">
+                        <div className="font-bold text-gray-800 mb-2 text-lg">
+                          {meal.name}
+                        </div>
+                        <div className="text-base font-bold text-orange-600 mb-3 bg-orange-100 px-3 py-1 rounded-full inline-block">
+                          🔥 {meal.calories} แคลอรี่
+                        </div>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {meal.items.map((item, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="text-orange-500 mr-2 mt-1">•</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Dinner */}
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <h4 className="text-xl font-bold text-gray-800 mb-5 flex items-center">
+                    <div className="p-2 bg-purple-200 rounded-xl mr-3">
+                      <span className="text-2xl">🌙</span>
+                    </div>
+                    อาหารเย็น
+                  </h4>
+                  <div className="space-y-4">
+                    {recommendedPlan.meals.dinner.map((meal, index) => (
+                      <div key={index} className="bg-white p-4 rounded-2xl shadow-md border border-purple-200 hover:shadow-lg transition-all duration-300">
+                        <div className="font-bold text-gray-800 mb-2 text-lg">
+                          {meal.name}
+                        </div>
+                        <div className="text-base font-bold text-purple-600 mb-3 bg-purple-100 px-3 py-1 rounded-full inline-block">
+                          🔥 {meal.calories} แคลอรี่
+                        </div>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          {meal.items.map((item, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="text-purple-500 mr-2 mt-1">•</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tips */}
+            <div className="bg-white/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/20">
+              <div className="flex items-center mb-8">
+                <div className="p-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl shadow-lg mr-4">
+                  <span className="text-2xl text-white">💡</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800">
+                  เคล็ดลับสำหรับความสำเร็จ
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {recommendedPlan.tips.map((tip, index) => (
+                  <div key={index} className="flex items-start space-x-4 p-5 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl shadow-md border border-green-200 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div className="p-2 bg-green-500 rounded-full flex-shrink-0">
+                      <span className="text-white font-bold text-sm">✓</span>
+                    </div>
+                    <span className="text-gray-700 font-medium leading-relaxed">{tip}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* Daily Meals */}
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <h3 className="text-xl font-bold text-gray-800 mb-6">
-              ตัวอย่างมื้ออาหาร
-            </h3>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Breakfast */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h4 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
-                  🌅 อาหารเช้า
-                </h4>
-                <div className="space-y-3">
-                  {recommendedPlan.meals.breakfast.map((meal, index) => (
-                    <div key={index} className="bg-yellow-50 p-3 rounded-lg">
-                      <div className="font-medium text-gray-800 mb-1">
-                        {meal.name}
-                      </div>
-                      <div className="text-sm text-yellow-600 mb-2">
-                        {meal.calories} แคลอรี่
-                      </div>
-                      <ul className="text-xs text-gray-600 space-y-1">
-                        {meal.items.map((item, i) => (
-                          <li key={i}>• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Lunch */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h4 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
-                  ☀️ อาหารกลางวัน
-                </h4>
-                <div className="space-y-3">
-                  {recommendedPlan.meals.lunch.map((meal, index) => (
-                    <div key={index} className="bg-orange-50 p-3 rounded-lg">
-                      <div className="font-medium text-gray-800 mb-1">
-                        {meal.name}
-                      </div>
-                      <div className="text-sm text-orange-600 mb-2">
-                        {meal.calories} แคลอรี่
-                      </div>
-                      <ul className="text-xs text-gray-600 space-y-1">
-                        {meal.items.map((item, i) => (
-                          <li key={i}>• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Dinner */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h4 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
-                  🌙 อาหารเย็น
-                </h4>
-                <div className="space-y-3">
-                  {recommendedPlan.meals.dinner.map((meal, index) => (
-                    <div key={index} className="bg-purple-50 p-3 rounded-lg">
-                      <div className="font-medium text-gray-800 mb-1">
-                        {meal.name}
-                      </div>
-                      <div className="text-sm text-purple-600 mb-2">
-                        {meal.calories} แคลอรี่
-                      </div>
-                      <ul className="text-xs text-gray-600 space-y-1">
-                        {meal.items.map((item, i) => (
-                          <li key={i}>• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Tips */}
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">
-              💡 เคล็ดลับสำหรับความสำเร็จ
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {recommendedPlan.tips.map((tip, index) => (
-                <div key={index} className="flex items-start space-x-3 p-3 bg-green-50 rounded-lg">
-                  <span className="text-green-600 font-bold">✓</span>
-                  <span className="text-gray-700">{tip}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }
