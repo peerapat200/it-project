@@ -81,59 +81,62 @@ const AdminPanel = () => {
         <h2 className="text-2xl font-bold text-gray-800">แดชบอร์ดผู้ดูแลระบบ</h2>
       </div>
 
-      {/* Statistic Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-5 rounded-3xl shadow-xl border border-blue-300 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-3xl font-bold mb-2">{statistics.totalUsers}</div>
-              <div className="text-sm font-medium text-blue-100">สมาชิกทั้งหมด</div>
+  {/* Statistic Cards - visually grouped and spaced */}
+  <div className="flex flex-col md:flex-row md:justify-between gap-12 mt-8 mb-16">
+        {/* Left group */}
+        <div className="flex flex-col md:flex-row gap-8 flex-1">
+          <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-7 rounded-xl shadow-2xl border-2 border-blue-300 hover:shadow-3xl transition-all duration-300 transform hover:scale-105 relative z-10">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-2xl font-extrabold mb-2 drop-shadow-lg">{statistics.totalUsers}</div>
+                <div className="text-base font-semibold text-blue-100">สมาชิกทั้งหมด</div>
+              </div>
+              <div className="p-4 bg-white/30 rounded-2xl backdrop-blur-sm">
+                <span className="text-3xl">👥</span>
+              </div>
             </div>
-            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-              <span className="text-3xl">👥</span>
+          </div>
+          <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-7 rounded-xl shadow-2xl border-2 border-green-300 hover:shadow-3xl transition-all duration-300 transform hover:scale-105 relative z-10">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-2xl font-extrabold mb-2 drop-shadow-lg">{statistics.activeUsers}</div>
+                <div className="text-base font-semibold text-green-100">สมาชิกที่ใช้งาน</div>
+              </div>
+              <div className="p-4 bg-white/30 rounded-2xl backdrop-blur-sm">
+                <span className="text-3xl">✅</span>
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-5 rounded-3xl shadow-xl border border-green-300 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-3xl font-bold mb-2">{statistics.activeUsers}</div>
-              <div className="text-sm font-medium text-green-100">สมาชิกที่ใช้งาน</div>
-            </div>
-            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-              <span className="text-3xl">✅</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-5 rounded-3xl shadow-xl border border-purple-300 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-3xl font-bold mb-2">{statistics.totalCalculations}</div>
-              <div className="text-sm font-medium text-purple-100">การคำนวณทั้งหมด</div>
-            </div>
-            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-              <span className="text-3xl">🧮</span>
+        {/* Right group */}
+        <div className="flex flex-col md:flex-row gap-8 flex-1">
+          <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-7 rounded-xl shadow-2xl border-2 border-purple-300 hover:shadow-3xl transition-all duration-300 transform hover:scale-105 relative z-10">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-2xl font-extrabold mb-2 drop-shadow-lg">{statistics.totalCalculations}</div>
+                <div className="text-base font-semibold text-purple-100">การคำนวณทั้งหมด</div>
+              </div>
+              <div className="p-4 bg-white/30 rounded-2xl backdrop-blur-sm">
+                <span className="text-3xl">🧮</span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-5 rounded-3xl shadow-xl border border-orange-300 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-3xl font-bold mb-2">{statistics.dailyActiveUsers}</div>
-              <div className="text-sm font-medium text-orange-100">ใช้งานวันนี้</div>
-            </div>
-            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-              <span className="text-3xl">📅</span>
+          <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-7 rounded-xl shadow-2xl border-2 border-orange-300 hover:shadow-3xl transition-all duration-300 transform hover:scale-105 relative z-10">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-2xl font-extrabold mb-2 drop-shadow-lg">{statistics.dailyActiveUsers}</div>
+                <div className="text-base font-semibold text-orange-100">ใช้งานวันนี้</div>
+              </div>
+              <div className="p-4 bg-white/30 rounded-2xl backdrop-blur-sm">
+                <span className="text-3xl">📅</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Weekly Usage & Recent Activity */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  {/* Weekly Usage & Recent Activity */}
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 mb-8">
         <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-3xl p-5 shadow-xl hover:shadow-2xl transition-all duration-300">
           <div className="flex items-center mb-5">
             <div className="p-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl shadow-lg mr-3">
@@ -380,59 +383,66 @@ const AdminPanel = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 w-full flex flex-col items-center justify-start pb-24">
-      <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
-        {/* Header */}
-        <div className="text-center mt-6 mb-8 animate-fade-in">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mb-6 shadow-xl">
-            <span className="text-3xl text-white">👑</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            แผงควบคุมผู้ดูแลระบบ
-          </h1>
-          <p className="text-base sm:text-lg text-blue-700 max-w-2xl mx-auto leading-relaxed font-medium">
-            ยินดีต้อนรับ, {user?.name}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl border border-white/20 p-5 sticky top-4">
-              <div className="flex items-center mb-5">
-                <div className="p-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-xl shadow-lg mr-3">
-                  <span className="text-lg text-white">📋</span>
+      <div className="min-h-screen bg-gradient-to-br from-[#eaf0fa] via-[#f3eaff] to-[#fbeff5] w-full flex flex-col items-center justify-start pb-24">
+        <div className="w-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-12 pb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Sidebar - theme refined */}
+            <div className="lg:col-span-1">
+              <div className="bg-[#23304A] rounded-[2.5rem] shadow-2xl border border-[#4db54f] p-0 sticky top-4 flex flex-col gap-0 min-h-[600px] w-full max-w-xs mx-auto">
+                {/* Sidebar Header */}
+                <div className="flex flex-col items-center justify-center py-8 border-b border-[#1B2236]">
+                  <div className="w-16 h-16 flex items-center justify-center bg-[#1B2236] rounded-full shadow-lg mb-2">
+                    <span className="text-4xl text-white">👤</span>
+                  </div>
+                  <div className="text-white text-xl font-bold mt-2">{user?.name || 'Admin User'}</div>
+                  <div className="text-blue-200 text-base font-medium mt-1">ผู้ดูแลระบบ</div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-800">เมนู</h3>
-              </div>
-              <nav className="flex flex-col gap-2">
-                {sections.map((section) => (
+                {/* Sidebar Menu */}
+                <nav className="flex flex-col gap-4 px-8 py-10">
                   <button
-                    key={section.id}
-                    onClick={() => setActiveSection(section.id)}
-                    className={`w-full text-left px-4 py-3 rounded-2xl transition-all duration-300 flex items-center gap-3 shadow-sm transform hover:scale-105
-                      ${activeSection === section.id
-                        ? 'bg-gradient-to-r from-green-400 to-green-600 text-white font-bold shadow-lg scale-105'
-                        : 'bg-white/70 text-gray-700 hover:bg-green-50 border border-gray-200 hover:border-green-300'
-                    }`}
+                    onClick={() => setActiveSection('dashboard')}
+                    className={`flex items-center gap-3 w-full px-5 py-4 rounded-2xl text-left font-bold text-lg transition-all duration-200 border-2
+                      ${activeSection === 'dashboard'
+                        ? 'bg-[#3B82F6] text-white border-white shadow-lg'
+                        : 'bg-[#1B2236] text-white hover:bg-[#3B82F6] hover:text-white border-transparent'}
+                    `}
                   >
-                    <span className="text-lg">{section.icon}</span>
-                    <span className="font-medium">{section.name}</span>
+                    <span className="text-2xl">🏠</span>
+                    <span>แดชบอร์ด</span>
                   </button>
-                ))}
-              </nav>
+                  <button
+                    onClick={() => setActiveSection('users')}
+                    className={`flex items-center gap-3 w-full px-5 py-4 rounded-2xl text-left font-bold text-lg transition-all duration-200 border-2
+                      ${activeSection === 'users'
+                        ? 'bg-[#1B2236] text-white border-white shadow-lg'
+                        : 'bg-[#1B2236] text-[#A78BFA] hover:bg-[#6D28D9] hover:text-white border-transparent'}
+                    `}
+                  >
+                    <span className="text-2xl text-[#A78BFA]">👥</span>
+                    <span>จัดการสมาชิก</span>
+                  </button>
+                </nav>
+              </div>
             </div>
-          </div>
 
-          {/* Main Content */}
-          <div className="lg:col-span-3">
-            <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 p-6 min-h-[600px]">
-              {renderContent()}
+            {/* Main Content - theme refined */}
+            <div className="lg:col-span-3">
+              <div className="bg-white rounded-[2.5rem] shadow-2xl border border-[#e0e7ef] p-12 min-h-[600px] flex flex-col justify-center">
+                {/* Header above main content */}
+                <div className="text-center mt-8 mb-16 animate-fade-in">
+                  <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 mb-4 drop-shadow-lg">
+                    แผงควบคุมผู้ดูแลระบบ
+                  </h1>
+                  <p className="text-lg text-blue-600 max-w-2xl mx-auto leading-relaxed font-medium mt-4">
+                    ยินดีต้อนรับ, {user?.name}
+                  </p>
+                </div>
+                {renderContent()}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   )
 }
 
